@@ -5,7 +5,7 @@
 [![最新版本](https://img.shields.io/github/v/release/weifengchui/hongzhao-downloads?label=companion)](https://github.com/weifengchui/hongzhao-downloads/releases/latest)
 [![下载量](https://img.shields.io/github/downloads/weifengchui/hongzhao-downloads/total)](https://github.com/weifengchui/hongzhao-downloads/releases)
 
-鸿爪浏览器扩展的可选本机组件，本仓库只存放它的安装包。源码在私有仓库，因此这里除二进制文件外没有别的内容。
+鸿爪浏览器扩展的可选本机组件，本仓库只存放它的安装包。源码在私有仓库，因此这里只有已发布的二进制文件与公开的隐私政策。
 
 ## 这个仓库是什么
 
@@ -31,19 +31,19 @@
 
 ### Windows
 
-1. 打开 [Releases](../../releases/latest)，下载 `Hongzhao-Companion-Setup.exe`（`companion-v0.1.2` 中为 608,768 字节，约 594 KB）。
+1. 打开 [Releases](../../releases/latest)，下载 `Hongzhao-Companion-Setup.exe`（`companion-v0.2.1` 中为 879,616 字节，约 859 KB）。
 2. 双击运行。单个文件，无需解压，也不需要安装 Rust。
 3. 安装器会识别已安装的 Chromium 系浏览器，从浏览器配置里反查鸿爪的扩展 ID，把宿主写到 `%LOCALAPPDATA%\Hongzhao`，在同一目录写原生消息清单，并注册 `HKCU\Software\<厂商>\<浏览器>\NativeMessagingHosts\com.hongzhao.companion`。识别不到扩展时，它会提示你粘贴 ID。
 4. 完全退出浏览器（所有窗口，包括托盘图标）再重新打开。
 5. 在扩展里进入 **设置 → 伴生进程 → 检查连接**，然后点 **同步镜像**。
 
-安装器没有代码签名，Windows SmartScreen 可能提示「未知发布者」。运行前请先按下面的方法核对 SHA-256。
+安装器没有代码签名，Windows SmartScreen 可能提示「未知发布者」，点「更多信息」→「仍要运行」即可继续。运行前请先按下面的方法核对 SHA-256。
 
 这个安装器不注册 Firefox，Firefox 用户请用[下文](#firefox任意平台)的脚本。
 
 ### macOS / Linux
 
-目前还没有发布 macOS 安装包：`companion-v0.1.2` 只有 Windows 安装器和 `SHA256SUMS.txt`。发布配置里为 `Hongzhao-Companion-Setup-macos.zip` 留了位置，但尚未产出。
+目前还没有发布 macOS 安装包：`companion-v0.2.1` 只有 Windows 安装包、宿主二进制和 `SHA256SUMS.txt`。发布配置里为 `Hongzhao-Companion-Setup-macos.zip` 留了位置，但尚未产出。
 
 在伴生进程源码目录中执行：
 
@@ -75,10 +75,11 @@ cd companion
 
 ## 校验下载文件
 
-每个 Release 都附带 `SHA256SUMS.txt`。`companion-v0.1.2` 的内容：
+每个 Release 都附带 `SHA256SUMS.txt`。`companion-v0.2.1` 的内容：
 
 ```text
-bb8e909fef19fb889a72f51ba4573c16439f129fefb2a7039dc28dfcdd7d973f  Hongzhao-Companion-Setup.exe
+b12b1821997e27914b735c7448ef22c98eab5715b6c68de36313c6dd618b5dd2  Hongzhao-Companion-Setup.exe
+aba8f338ce5d295b8a09f5fd40a4a867bdbb8b02aa5a944bba85793735934e1c  hongzhao-companion-windows-x64.exe
 ```
 
 和下载到的文件比对：
@@ -151,7 +152,7 @@ macOS / Linux 用安装脚本最后打印的二进制路径，例如 `/path/to/c
 2. **扩展 ID 不匹配。** 清单里的 `allowed_origins` 必须正好是 `chrome-extension://<你的ID>/`。用正确的 ID 重跑安装器。
 3. **浏览器没完全重启。** 原生消息宿主只在浏览器启动时解析。关掉所有窗口和托盘图标，再重新打开。
 4. **Firefox 没传附加组件 ID。** `chrome-extension://` 来源对 Firefox 无效；带上附加组件 ID 重跑，让 `allowed_extensions` 有值。
-5. **二进制路径失效。** 运行 `%LOCALAPPDATA%\Hongzhao\hongzhao-companion.exe --version`，这个版本会打印 `0.1.1`。如果你移动了安装目录，清单里的 `path` 就对不上，宿主无法启动。
+5. **二进制路径失效。** 运行 `%LOCALAPPDATA%\Hongzhao\hongzhao-companion.exe --version`，这个版本会打印 `0.2.1`。如果你移动了安装目录，清单里的 `path` 就对不上，宿主无法启动。
 
 ### MCP 返回「没有匹配的痕迹」
 
@@ -170,7 +171,7 @@ macOS / Linux 用安装脚本最后打印的二进制路径，例如 `/path/to/c
 - **全部下载**：<https://github.com/weifengchui/hongzhao-downloads/releases/latest>
 - **Windows 安装包直链**：<https://github.com/weifengchui/hongzhao-downloads/releases/latest/download/Hongzhao-Companion-Setup.exe>
 - **源码仓库**：<https://github.com/weifengchui/hongzhao>（私有仓库，需维护者授权，公开访问会 404）
-- **隐私政策**：同一私有源码仓库中的 `PRIVACY.md`，同时涵盖扩展本体；上面的「隐私」一节是伴生进程相关的部分。
+- **隐私政策**：<https://github.com/weifengchui/hongzhao-downloads/blob/main/PRIVACY.md>（公开），同时涵盖扩展本体；上面的「隐私」一节是伴生进程相关的部分。
 - **扩展本体**：不在本仓库分发。若有官方商店页面请从商店安装，否则从源码仓库自行构建。
 
 ## 许可与免责
