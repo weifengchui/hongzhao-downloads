@@ -172,6 +172,7 @@ macOS / Linux 用安装脚本最后打印的二进制路径，例如 `/path/to/c
 - **Windows 安装包直链**：<https://github.com/weifengchui/hongzhao-downloads/releases/latest/download/Hongzhao-Companion-Setup.exe>
 - **源码仓库**：<https://github.com/weifengchui/hongzhao>（私有仓库，需维护者授权，公开访问会 404）
 - **隐私政策**：<https://github.com/weifengchui/hongzhao-downloads/blob/main/PRIVACY.md>（公开），同时涵盖扩展本体；上面的「隐私」一节是伴生进程相关的部分。
+- **支持**：hongzhaosupport@163.com
 - **扩展本体**：不在本仓库分发。若有官方商店页面请从商店安装，否则从源码仓库自行构建。
 
 ## 许可与免责
