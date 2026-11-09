@@ -1,6 +1,6 @@
 # 鸿爪隐私政策
 
-生效日期：2026-10-29 · 更新：2026-11-08 · 版本 0.2.0
+生效日期：2026-10-29 · 更新：2026-11-09 · 版本 0.2.0
 
 公开地址：https://github.com/weifengchui/hongzhao-downloads/blob/main/PRIVACY.md
 
@@ -99,4 +99,5 @@
 
 ## 联系
 
-问题与建议请通过项目仓库的 Issue 反馈。
+- 支持邮箱：hongzhaosupport@163.com
+- 问题与建议：<https://github.com/weifengchui/hongzhao-downloads/issues>
