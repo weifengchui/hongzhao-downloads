@@ -172,6 +172,7 @@ No. It is optional, and the extension never contacts it unless you sync.
 - **Windows installer, direct link** — <https://github.com/weifengchui/hongzhao-downloads/releases/latest/download/Hongzhao-Companion-Setup.exe>
 - **Source code** — <https://github.com/weifengchui/hongzhao> (private; access must be granted by the maintainer, and the URL is not publicly browsable)
 - **Privacy policy** — <https://github.com/weifengchui/hongzhao-downloads/blob/main/PRIVACY.md> (public), which also covers the extension. The summary above is the companion-specific part.
+- **Support** — hongzhaosupport@163.com
 - **Extension** — not distributed in this repository. Install it from its official browser add-on listing if one exists, or build it from the source repository.
 
 ## License & disclaimer
