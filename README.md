@@ -5,7 +5,7 @@
 [![Latest release](https://img.shields.io/github/v/release/weifengchui/hongzhao-downloads?label=companion)](https://github.com/weifengchui/hongzhao-downloads/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/weifengchui/hongzhao-downloads/total)](https://github.com/weifengchui/hongzhao-downloads/releases)
 
-The optional local companion for the Hongzhao browser extension, published here as installers only. The source code lives in a private repository, so this repo contains binaries and nothing else.
+The optional local companion for the Hongzhao browser extension, published here as installers only. The source code lives in a private repository, so this repo contains the released binaries plus the public privacy policy.
 
 ## What this repository is
 
@@ -31,19 +31,19 @@ The companion never reads browser databases, never opens a network connection, a
 
 ### Windows
 
-1. Open [Releases](../../releases/latest) and download `Hongzhao-Companion-Setup.exe` (608,768 bytes in `companion-v0.1.2`, about 594 KB).
+1. Open [Releases](../../releases/latest) and download `Hongzhao-Companion-Setup.exe` (879,616 bytes in `companion-v0.2.1`, about 859 KB).
 2. Double-click it. It is a single file: nothing to extract, no Rust required.
 3. The installer detects installed Chromium browsers, looks up the Hongzhao extension ID in their profiles, unpacks the host to `%LOCALAPPDATA%\Hongzhao`, writes the native-messaging manifest there, and registers `HKCU\Software\<vendor>\<browser>\NativeMessagingHosts\com.hongzhao.companion`. If no ID is found, it asks you to paste one.
 4. Quit the browser completely — every window, including the tray icon — and start it again.
 5. In the extension: **Settings → Companion process → Check connection**, then **Sync mirror**.
 
-The installer is not code-signed, so Windows SmartScreen may warn about an unknown publisher. Check the SHA-256 below before running it.
+The installer is not code-signed, so Windows SmartScreen may warn about an unknown publisher; click **More info → Run anyway** to continue. Check the SHA-256 below before running it.
 
 Firefox is not registered by this installer. Use the script described under [Firefox](#firefox-any-platform).
 
 ### macOS / Linux
 
-There is no published macOS build yet: `companion-v0.1.2` ships a Windows installer and `SHA256SUMS.txt` only. `Hongzhao-Companion-Setup-macos.zip` is reserved in the release configuration but not produced.
+There is no published macOS build yet: `companion-v0.2.1` ships a Windows installer, the host binary and `SHA256SUMS.txt` only. `Hongzhao-Companion-Setup-macos.zip` is reserved in the release configuration but not produced.
 
 From a companion source tree:
 
@@ -75,10 +75,11 @@ That writes `%APPDATA%\Mozilla\native-messaging-hosts\com.hongzhao.companion.jso
 
 ## Verify the download
 
-Each release ships `SHA256SUMS.txt` next to the binaries. For `companion-v0.1.2`:
+Each release ships `SHA256SUMS.txt` next to the binaries. For `companion-v0.2.1`:
 
 ```text
-bb8e909fef19fb889a72f51ba4573c16439f129fefb2a7039dc28dfcdd7d973f  Hongzhao-Companion-Setup.exe
+b12b1821997e27914b735c7448ef22c98eab5715b6c68de36313c6dd618b5dd2  Hongzhao-Companion-Setup.exe
+aba8f338ce5d295b8a09f5fd40a4a867bdbb8b02aa5a944bba85793735934e1c  hongzhao-companion-windows-x64.exe
 ```
 
 Compare it with the file you downloaded:
@@ -151,7 +152,7 @@ Work through these in order:
 2. **Extension ID mismatch.** The manifest's `allowed_origins` must contain exactly `chrome-extension://<your-id>/`. Re-run the installer with the correct ID.
 3. **Browser not fully restarted.** Native-messaging hosts are resolved at browser startup. Close every window and the tray icon, then relaunch.
 4. **Firefox without an add-on ID.** A `chrome-extension://` origin means nothing to Firefox; re-run with the add-on ID so `allowed_extensions` is filled in.
-5. **Broken binary path.** Run `%LOCALAPPDATA%\Hongzhao\hongzhao-companion.exe --version`; this release prints `0.1.1`. If you move the installation, the manifest's `path` no longer matches and the host cannot start.
+5. **Broken binary path.** Run `%LOCALAPPDATA%\Hongzhao\hongzhao-companion.exe --version`; this release prints `0.2.1`. If you move the installation, the manifest's `path` no longer matches and the host cannot start.
 
 ### MCP answers "no matching traces"
 
@@ -170,7 +171,7 @@ No. It is optional, and the extension never contacts it unless you sync.
 - **All downloads** — <https://github.com/weifengchui/hongzhao-downloads/releases/latest>
 - **Windows installer, direct link** — <https://github.com/weifengchui/hongzhao-downloads/releases/latest/download/Hongzhao-Companion-Setup.exe>
 - **Source code** — <https://github.com/weifengchui/hongzhao> (private; access must be granted by the maintainer, and the URL is not publicly browsable)
-- **Privacy policy** — `PRIVACY.md` in that same private source repository, which also covers the extension. The summary above is the companion-specific part.
+- **Privacy policy** — <https://github.com/weifengchui/hongzhao-downloads/blob/main/PRIVACY.md> (public), which also covers the extension. The summary above is the companion-specific part.
 - **Extension** — not distributed in this repository. Install it from its official browser add-on listing if one exists, or build it from the source repository.
 
 ## License & disclaimer
